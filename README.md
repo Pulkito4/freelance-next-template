@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Freelance Next.js Template
 
-## Getting Started
+This is a reusable, battle-tested Next.js (App Router) template tailored for rapid freelance project development. 
+It enforces strict coding standards, decoupling of concerns, and integration with modern UI libraries.
 
-First, run the development server:
+## 🚀 Tech Stack
+- **Framework:** Next.js (App Router only, React 19)
+- **Language:** TypeScript (Strict Mode)
+- **Styling:** Tailwind CSS + PostCSS
+- **Component System:** [shadcn/ui](https://ui.shadcn.com/) and Aceternity UI
+- **Forms & Validation:** React Hook Form + Zod (to be installed per project)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 📂 Folder Architecture
+- `/src/app`: Routing and page composition. Server Components by default.
+- `/src/components/ui`: Auto-generated `shadcn/ui` components or raw external library components.
+- `/src/components/shared`: Custom reusable components across the app (e.g., Header, generic forms).
+- `/src/lib`: Utility functions (e.g., `utils.ts` for Tailwind), API clients, and constants.
+- `/src/actions`: Next.js Server Actions. Keep business logic here (try/catch decoupled).
+- `/src/types`: Global TypeScript interfaces and Zod schemas, grouped by feature domain.
+- `/src/hooks`: Custom React hooks (e.g., `useDebounce`).
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🤖 Instructions for AI Agents
+When generating code in this repository:
+1. **Never** hallucinate generic components if a `shadcn/ui` option exists. Use `npx shadcn@latest add <component>`.
+2. All components must be **Server Components** unless they use hooks/browser APIs (`"use client"`).
+3. **Types:** Define explicit interfaces for all props in `src/types` and import them. No `any` types.
+4. **Server Actions:** All actions in `src/actions` must have a robust `try/catch` and return standardized `{ success: boolean, message?: string, error?: string }` objects.
+5. **Secrets:** Do not hardcode secrets. Always use environment variables and update `.env.example`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠️ CLI Commands
+- `npm run dev`: Start development server on `localhost:3000`.
+- `npm run build`: Build production bundle.
+- `npm start`: Start production server.
+- `npm run lint`: Run ESLint.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Ready. Set. Ship!
